@@ -1,5 +1,5 @@
 * {
-    font-family: 'Quicksand';
+    font-family: 'Calibri';
 }
 
 .jumbo-bg {
@@ -25,5 +25,12 @@
 }
 
 .header-font {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Calibri', serif;
+   
+}
+
+.titleheader-font {
+    color: #ffffff;
+    text-shadow: #000000;
+    
 }

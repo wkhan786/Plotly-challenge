@@ -8,10 +8,10 @@ var demographicsTable = d3.select("#sample-metadata");
 var barChart = d3.select("#bar");
 
 // select the bubble chart div
-var bubbleChart = d3.select("bubble");
+var bubbleChart = d3.select("#bubble");
 
 // select the gauge chart div
-var gaugeChart = d3.select("gauge");
+var gaugeChart = d3.select("#gauge");
 
 // create a function to initially populate dropdown menu with IDs and draw charts by default (using the first ID)
 function init() {
@@ -46,7 +46,7 @@ function init() {
 function resetData() {
 
     // ----------------------------------
-    // CLEAR THE DATA
+    // Clear data
     // ----------------------------------
 
     demographicsTable.html("");
@@ -63,7 +63,7 @@ function plotCharts(id) {
     d3.json("data/samples.json").then((data => {
 
         // ----------------------------------
-        // POPULATE DEMOGRAPHICS TABLE
+        // Populated demo table 
         // ----------------------------------
 
         // filter the metadata for the ID chosen
@@ -90,7 +90,7 @@ function plotCharts(id) {
         }); // close forEach
 
         // --------------------------------------------------
-        // RETRIEVE DATA FOR PLOTTING CHARTS
+        // Retreive data for chart plotting 
         // --------------------------------------------------
 
         // filter the samples for the ID chosen
@@ -130,7 +130,7 @@ function plotCharts(id) {
         var topOtuIdsFormatted = topOtuIds.map(otuID => "OTU " + otuID);
 
         // ----------------------------------
-        // PLOT BAR CHART
+        // Plot bar chart
         // ----------------------------------
 
         // create a trace
@@ -181,7 +181,7 @@ function plotCharts(id) {
         Plotly.newPlot("bar", dataBar, layoutBar);
 
         // ----------------------------------
-        // PLOT BUBBLE CHART
+        // Plot bubble chart
         // ----------------------------------
 
         // create trace
@@ -225,7 +225,7 @@ function plotCharts(id) {
         Plotly.newPlot('bubble', dataBub, layoutBub);
 
         // ----------------------------------
-        // PLOT GAUGE CHART (OPTIONAL)
+        // Plot gauge chart 
         // ----------------------------------
 
         // if wfreq has a null value, make it zero for calculating pointer later
