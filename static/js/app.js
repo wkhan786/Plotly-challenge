@@ -346,6 +346,7 @@ function plotCharts(id) {
         Plotly.newPlot('gauge', dataGauge, layoutGauge);
 
 
+         
     })); // close .then function
 
 }; // close plotCharts() function
