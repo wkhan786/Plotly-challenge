@@ -22,9 +22,9 @@ function init() {
     // read in samples from JSON file
     d3.json("data/samples.json").then((data => {
 
-        // ----------------------------------
-        // POPULATE DROPDOWN MENU WITH IDs 
-        // ----------------------------------
+        // --------------------------------
+        // Populated menu dropdown with IDs 
+        // --------------------------------
 
         //  use a forEach to loop over each name in the array data.names to populate dropdowns with IDs
         data.names.forEach((name => {
@@ -45,9 +45,9 @@ function init() {
 // create a function to reset divs to prepare for new data
 function resetData() {
 
-    // ----------------------------------
+    // -----------------------------
     // Clear data
-    // ----------------------------------
+    // -----------------------------
 
     demographicsTable.html("");
     barChart.html("");
@@ -62,9 +62,9 @@ function plotCharts(id) {
     // read in the JSON data
     d3.json("data/samples.json").then((data => {
 
-        // ----------------------------------
+        // ---------------------------
         // Populated demo table 
-        // ----------------------------------
+        // ---------------------------
 
         // filter the metadata for the ID chosen
         var individualMetadata = data.metadata.filter(participant => participant.id == id)[0];
@@ -89,9 +89,9 @@ function plotCharts(id) {
 
         }); // close forEach
 
-        // --------------------------------------------------
+        // --------------------------------------
         // Retreive data for chart plotting 
-        // --------------------------------------------------
+        // --------------------------------------
 
         // filter the samples for the ID chosen
         var individualSample = data.samples.filter(sample => sample.id == id)[0];
@@ -129,9 +129,9 @@ function plotCharts(id) {
         // use the map function to store the IDs with "OTU" for labelling y-axis
         var topOtuIdsFormatted = topOtuIds.map(otuID => "OTU " + otuID);
 
-        // ----------------------------------
+        // ------------------------
         // Plot bar chart
-        // ----------------------------------
+        // ------------------------
 
         // create a trace
         var traceBar = {
@@ -180,9 +180,9 @@ function plotCharts(id) {
         // plot the bar chart to the "bar" div
         Plotly.newPlot("bar", dataBar, layoutBar);
 
-        // ----------------------------------
+        // --------------------------
         // Plot bubble chart
-        // ----------------------------------
+        // --------------------------
 
         // create trace
         var traceBub = {
@@ -224,9 +224,9 @@ function plotCharts(id) {
         // plot the bubble chat to the appropriate div
         Plotly.newPlot('bubble', dataBub, layoutBub);
 
-        // ----------------------------------
+        // ------------------------
         // Plot gauge chart 
-        // ----------------------------------
+        // ------------------------
 
         // if wfreq has a null value, make it zero for calculating pointer later
         if (wfreq == null) {
@@ -345,7 +345,6 @@ function plotCharts(id) {
         // plot the gauge chart
         Plotly.newPlot('gauge', dataGauge, layoutGauge);
 
-
          
     })); // close .then function
 
@@ -359,7 +358,6 @@ function optionChanged(id) {
 
     // plot the charts for this id
     plotCharts(id);
-
 
 } // close optionChanged function
 
